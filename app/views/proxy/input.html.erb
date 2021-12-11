@@ -1,0 +1,42 @@
+<section class="py-5 text-center container fst-italic"> 
+   <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+         <%= form_tag  url_for(controller: :proxy, action: :output), method: 'get' do %>
+            <h1 class="fw-bold"> Введите число </h1>
+            <div class="col-12">
+               <div class="form-group">
+                  <%= label_tag :InputNumber, 'Число', class: 'fs-5' %>
+                  <%= text_field_tag :InputNumber, nil, class: 'form-control' %>
+               </div>
+
+               <fieldset class="form-group d-flex flex-column align-items-start fs-4 p-5">
+                  <legend class="fs-3 fw-bold"> Выбор стороны рендеринга </legend>
+
+                  <div class="form-check">
+                     <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="side" value="server" id="server-side" checked>
+                        Серверное xml+xslt->html
+                     </label>
+                  </div>
+
+                  <div class="form-check">
+                     <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="side" value="client" id="client-side">
+                        Отображение XML на стороне браузера
+                     </label>
+                  </div>
+
+                  <div class="form-check">
+                     <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="side" value="client-with-xslt" id="client-side-xslt">
+                        Клиентское xml+xslt->html
+                     </label>
+                  </div>
+               </fieldset>
+
+               <%= submit_tag 'Отправить', class: 'btn btn-primary fs-5' %>
+            </div>
+         <% end %>
+      </div>
+   </div>
+</section>
